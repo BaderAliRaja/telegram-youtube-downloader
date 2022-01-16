@@ -6,6 +6,7 @@ import { Telegraf } from 'telegraf'
 import { isValidUrl } from './IsValidUrl'
 import { download } from './YoutubeDownloader';
 import fetch from 'node-fetch';
+import { unlinkSync } from "fs";
 
 const BOT_TOKEN = process.env.BOT_TOKEN!;
 
@@ -15,7 +16,7 @@ async function main() {
     const clearUpdateId = clearUpdatesJson.result.length > 0 ? clearUpdatesJson.result[0].update_id : null;
 
     const bot = new Telegraf(BOT_TOKEN, {
-        'handlerTimeout': 5 * 60 * 1000 // 5 minutes
+        'handlerTimeout': 30 * 60 * 1000 // 30 minutes
     });
 
     bot.on('text', async (ctx) => {
@@ -27,9 +28,10 @@ async function main() {
 
         if (isValidUrl(message)) {
             try {
-                const path = await download(message);
-                console.log('Sending: ' + './' + path);
-                ctx.replyWithDocument({ source: './' + path });
+                const path = './' + await download(message);
+                console.log('Sending: ' + path);
+                await ctx.replyWithDocument({ source: path });
+                unlinkSync(path);
             } catch (error) {
                 console.error(error);
                 ctx.reply('❌ errored');
