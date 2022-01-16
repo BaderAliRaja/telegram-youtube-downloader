@@ -1,0 +1,20 @@
+{
+  "name": "youtube-telegram-downloader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "y2d.js",
+  "scripts": {
+    "bot": "node src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BaderAliRaja/telegram-youtube-downloader.git"
+  },
+  "keywords": [],
+  "author": "Bader Ali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BaderAliRaja/telegram-youtube-downloader/issues"
+  },
+  "homepage": "https://github.com/BaderAliRaja/telegram-youtube-downloader#readme"
+}
