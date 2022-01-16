@@ -1,2 +1,3 @@
-.env.example
-docker
+.env
+node_modules/
+cache/

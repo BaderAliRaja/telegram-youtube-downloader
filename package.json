@@ -2,9 +2,9 @@
   "name": "youtube-telegram-downloader",
   "version": "1.0.0",
   "description": "",
-  "main": "y2d.js",
+  "main": "src/main.js",
   "scripts": {
-    "bot": "node src/main.js"
+    "bot": "ts-node src/main.ts"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,16 @@
   "bugs": {
     "url": "https://github.com/BaderAliRaja/telegram-youtube-downloader/issues"
   },
-  "homepage": "https://github.com/BaderAliRaja/telegram-youtube-downloader#readme"
+  "homepage": "https://github.com/BaderAliRaja/telegram-youtube-downloader#readme",
+  "dependencies": {
+    "@types/node": "^17.0.8",
+    "dotenv": "^12.0.4",
+    "node-fetch": "^2.6.7",
+    "telegraf": "^4.6.0",
+    "typescript": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.5.12",
+    "ts-node": "^10.4.0"
+  }
 }
